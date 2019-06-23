@@ -1,0 +1,17 @@
+.heat-map {
+  height: 80vh;
+}
+
+.heat-map .card {
+  width: 100%;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}

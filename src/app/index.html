@@ -1,16 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css"/>
-    <title>Hello, world!</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="./assets/css/bundle.css" />
+    <title>Dados Emlurb</title>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Dados Emlurb</a>
     </nav>
 
+    <section id="heatmap" class="bg-light p-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 heat-map">
+            <div class="card">
+              <div class="card-header">Mapa de calor - <span id="heatmap-desc"></span></div>
+              <div class="card-body">
+                <div id="map"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>
+          Dados Emlurb by: <a href="https://github.com/AndersonRodr"> Anderson Rogrigues </a>,
+          <a href="https://github.com/BrunoVirgu">Bruno Alves</a>,
+          <a href="https://github.com/ItaloSa"> Ítalo Sousa</a> and
+          <a href="https://github.com/nicolas-sss">Nicolas Moura</a>
+        </p>
+      </div>
+    </footer>
+
     <script src="./assets/js/bundle.js"></script>
   </body>
-</html
+</html>
