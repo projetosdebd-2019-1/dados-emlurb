@@ -16,7 +16,7 @@
   };
 
   const setAddressPoints = (addresses) => {
-    addressPoints = addresses.map((address) => [address.lat, address.situacao]);
+    addressPoints = addresses.map((address) => [address.lat, address.lng]);
   };
 
   const setMapDescription = (description) => {

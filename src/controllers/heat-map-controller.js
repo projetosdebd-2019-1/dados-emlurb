@@ -7,8 +7,7 @@ module.exports = {
       database.query(`
       select
         lat,
-        lng situacao,
-        bairro
+        lng
       from
         endereco,
         chamado
