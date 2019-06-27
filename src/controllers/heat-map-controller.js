@@ -156,5 +156,134 @@ module.exports = {
     })
   },
 
+  getTodosChamados4(situacao, ano){
+    return new Promise((resolve, reject) => {
+      database.query(`
+      select lat, lng from chamado, endereco
+      where chamado.codigoEndereco = endereco.codigo
+      and EXTRACT(YEAR from dataDemanda) = ${ano}
+      and situacao = '${situacao}';
+      `, (err, rows, fields) => {
+        resolve(rows);
+      });
+    })
+  },
+
+  getTodosChamados5(ano, bairro){
+    return new Promise((resolve, reject) => {
+      database.query(`
+      select lat, lng from chamado, endereco
+      where chamado.codigoEndereco = endereco.codigo
+      and EXTRACT(YEAR from dataDemanda) = ${ano}
+      and bairro = '${bairro}';
+      `, (err, rows, fields) => {
+        resolve(rows);
+      });
+    })
+  },
+
+  getTodosChamados6(bairro, situacao){
+    return new Promise((resolve, reject) => {
+      database.query(`
+      select lat, lng from chamado, endereco
+      where chamado.codigoEndereco = endereco.codigo
+      and bairro = '${bairro}'
+      and situacao = '${situacao}';
+      `, (err, rows, fields) => {
+        resolve(rows);
+      });
+    })
+  },
+
+  getTodosChamados7(bairro, ano, situacao){
+    return new Promise((resolve, reject) => {
+      database.query(`
+      select lat, lng from chamado, endereco
+      where chamado.codigoEndereco = endereco.codigo
+      and EXTRACT(YEAR from dataDemanda) = ${ano}
+      and bairro = '${bairro}'
+      and situacao = 'P${situacao}';
+      `, (err, rows, fields) => {
+        resolve(rows);
+      });
+    })
+  },
+
+  getTodosChamados7(bairro, ano, situacao){
+    return new Promise((resolve, reject) => {
+      database.query(`
+      select lat, lng from chamado, endereco
+      where chamado.codigoEndereco = endereco.codigo
+      and EXTRACT(YEAR from dataDemanda) = ${ano}
+      and bairro = '${bairro}'
+      and situacao = 'P${situacao}';
+      `, (err, rows, fields) => {
+        resolve(rows);
+      });
+    })
+  },
+
+  getTodosBairros(){
+    return new Promise((resolve, reject) => {
+      database.query(`
+      select distinct(bairro) from endereco;
+      `, (err, rows, fields) => {
+        resolve(rows);
+      });
+    })
+  },
+
+  getDescricao(){
+    return new Promise((resolve, reject) => {
+      database.query(`
+      select descricao from servico;
+      `, (err, rows, fields) => {
+        resolve(rows);
+      });
+    })
+  },
+
+  getInsidenciaServico(descricao){
+    return new Promise((resolve, reject) => {
+      database.query(`
+      select lat, lng, bairro from endereco, servico, chamado
+      where chamado.codigoEndereco = endereco.codigo
+      and chamado.codigoServico = servico.id
+      and servico.descricao = '${descricao}'
+      and bairro in (select * from (select bairro from chamado, endereco, servico
+      where chamado.codigoEndereco = endereco.codigo
+      and chamado.codigoServico = servico.id
+      and servico.descricao = '${descricao}'
+      group by bairro
+      order by count(servico.descricao) DESC LIMIT 1) table_temp);
+      `, (err, rows, fields) => {
+        resolve(rows);
+      });
+    })
+  },
+
+  getInsidenciaServico1(descricao, ano){
+    return new Promise((resolve, reject) => {
+      database.query(`
+      select lat, lng, bairro from endereco, servico, chamado
+      where chamado.codigoEndereco = endereco.codigo
+      and chamado.codigoServico = servico.id
+      and EXTRACT(YEAR from dataDemanda) = ${ano}
+      and servico.descricao = '${descricao}'
+      and bairro in (select * from (select bairro from chamado, endereco, servico
+      where chamado.codigoEndereco = endereco.codigo
+      and chamado.codigoServico = servico.id
+      and EXTRACT(YEAR from dataDemanda) = ${ano}
+      and servico.descricao = '${descricao}'
+      group by bairro
+      order by count(servico.descricao) DESC LIMIT 1) table_temp);
+      `, (err, rows, fields) => {
+        resolve(rows);
+      });
+    })
+  },
+
+
+
 
 };

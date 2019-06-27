@@ -35,14 +35,43 @@ router.get('/ServicosRecorrentes', async (req, res) => {
     data,
   });
 });
-
+//TODOS OS CHAMADOS UTILIZANDO FILTROS
 router.get('/TodosChamados', async (req, res) => {
-  const data = await controller.getTodosChamados();
+  const ano = req.query.ano;
+  const bairro = req.query.bairro;
+  const situacao = req.query.situacao;
+  let data;
+  if(ano == undefined && bairro == undefined && situacao == undefined){
+    data = await controller.getTodosChamados();
+  }
+  else if(ano != undefined && bairro == undefined && situacao == undefined){
+    data = await controller.getTodosChamados1(ano)
+  }
+  else if (ano == undefined && bairro != undefined && situacao == undefined){
+    data = await controller.getTodosChamados2(bairro);
+  }
+  else if (ano == undefined && bairro == undefined && situacao != undefined){
+    data = await controller.getTodosChamados3(bairro);
+  }
+  else if (ano != undefined && bairro == undefined && situacao != undefined){
+    data = await controller.getTodosChamados4(situacao, ano);
+  }
+  else if (ano != undefined && bairro != undefined && situacao == undefined){
+    data = await controller.getTodosChamados5(ano, bairro);
+  }
+  else if (ano == undefined && bairro != undefined && situacao != undefined){
+    data = await controller.getTodosChamados6(bairro, situacao);
+  }
+  else{
+    data = await controller.getTodosChamados7(bairro, ano,situacao);
+  }
   res.json({
     definition: "Todos os chamados",
     data,
   })
 })
+
+
 
 //situacoes para o filtro
 router.get('/Situacao', async (req, res) => {
@@ -51,6 +80,39 @@ router.get('/Situacao', async (req, res) => {
     data,
   });
 });
+//bairros para os filtros
+router.get('/Bairros', async (req, res) => {
+  const data =  await controller.getTodosBairros();
+  res.json({
+    data,
+  });
+});
+//servicos para os filtros
+router.get('/Descricao', async (req, res) => {
+  const data =  await controller.getDescricao();
+  res.json({
+    data,
+  });
+});
 
+//SERVICOS RECORRENTES, OBRIGATÓRIO FILTRO DE BAIRRO e POSSIBILIDADE DE FILTRO DE ANO
+router.get('/Insidencia', async (req, res) => {
+  const descricao = req.query.descricao;
+  const ano = req.query.ano;
+  let data;
+  if(descricao != undefined && ano == undefined ){
+    data = await controller.getInsidenciaServico(descricao);
+  }
+  else if(descricao == undefined && ano == undefined ) {
+    throw new Exception("QUEBROU")
+  }
+  else {
+    data = await controller.getInsidenciaServico1(descricao, ano);
+  }
+  res.json({
+    definition: `Servicos mais recorrentes em: ${bairro} no ano de : ${ano}`,
+    data,
+  });
+});
 
 module.exports = router;
