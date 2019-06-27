@@ -24,7 +24,7 @@
   }
 
   const loadMapData = () => {
-    axios.get('/heat-map/TodosChamados')
+    axios.get('api/heat-map/TodosChamados')
       .then((response) => {
         const { data } = response;
         console.log(data);
