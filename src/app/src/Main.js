@@ -1,4 +1,4 @@
-(function App(Leaflet, axios, $) {
+(function Main(Leaflet, axios, $) {
 
   const map = Leaflet.map('map').setView([-8.056925, -34.883004], 13); // Recife view
   let addressPoints = [];
@@ -24,20 +24,7 @@
   }
 
   const loadMapData = () => {
-    axios.get('/heat-map/MenorAtuacao')
-      .then((response) => {
-        const { data } = response;
-        console.log(data);
-        setMapDescription(data.definition);
-        setAddressPoints(data.data);
-        setMapPoints(addressPoints);
-      }).catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const loadMapData1 = () => {
-    axios.get('/heat-map/ServicosRecorrentes?bairro=BARRO')
+    axios.get('/heat-map/TodosChamados')
       .then((response) => {
         const { data } = response;
         console.log(data);

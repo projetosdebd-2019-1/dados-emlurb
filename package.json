@@ -41,10 +41,5 @@
     "gulp-concat": "^2.6.1",
     "husky": "^2.3.0",
     "nodemon": "^1.19.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "eslint ."
-    }
   }
 }

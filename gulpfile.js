@@ -15,7 +15,10 @@ const scripts = [
   './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
   './node_modules/leaflet/dist/leaflet.js',
   './src/app/libs/leaflet-heat.js',
-  './src/app/src/app.js',
+];
+
+const app = [
+  './src/app/src/Main.js',
 ];
 
 gulp.task('build-styles', () => {
@@ -32,4 +35,10 @@ gulp.task('build-scripts', () => {
     .pipe(gulp.dest(`${dest}/js`));
 });
 
-gulp.task('build', gulp.parallel('build-styles', 'build-scripts'));
+gulp.task('build-app', () => {
+  return gulp
+    .src(app)
+    .pipe(gulp.dest(`${dest}/js`));
+});
+
+gulp.task('build', gulp.parallel('build-styles', 'build-scripts', 'build-app'));
