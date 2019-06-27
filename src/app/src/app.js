@@ -36,6 +36,19 @@
       });
   };
 
+  const loadMapData1 = () => {
+    axios.get('/heat-map/ServicosRecorrentes?bairro=BARRO')
+      .then((response) => {
+        const { data } = response;
+        console.log(data);
+        setMapDescription(data.definition);
+        setAddressPoints(data.data);
+        setMapPoints(addressPoints);
+      }).catch((err) => {
+        console.log(err);
+      });
+  };
+
   // run
   const run = async () => {
 
