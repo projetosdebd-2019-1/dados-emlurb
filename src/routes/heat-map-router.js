@@ -14,7 +14,7 @@ router.get('/MenorAtuacao', async (req, res) => {
     data = await controller.getMenorAtuacao();
   }
   res.json({
-    definition: 'Bairros com menos atuação da emlurb; Chamados com situação pendente em:' + `${ano}`,
+    definition: `Bairros com menos atuação da emlurb. Chamados com situação pendente ${ano ? 'em: ' + ano : '' }`,
     data,
   });
 });

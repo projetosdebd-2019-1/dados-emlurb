@@ -19,6 +19,7 @@ const scripts = [
 
 const app = [
   './src/app/src/Main.js',
+  './src/app/src/MenorAtuacao.js',
 ];
 
 gulp.task('build-styles', () => {
