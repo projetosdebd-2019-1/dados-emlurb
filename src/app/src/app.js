@@ -24,7 +24,7 @@
   }
 
   const loadMapData = () => {
-    axios.get('/heat-map')
+    axios.get('/heat-map/MenorAtuacao')
       .then((response) => {
         const { data } = response;
         console.log(data);
