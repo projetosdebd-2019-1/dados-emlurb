@@ -1,4 +1,4 @@
-(function Main(Leaflet, axios, $) {
+(function MenorAtuacao(Leaflet, axios, $) {
 
   const map = Leaflet.map('map').setView([-8.056925, -34.883004], 13); // Recife view
   let addressPoints = [];
@@ -23,8 +23,8 @@
     $('#heatmap-desc').text(description);
   }
 
-  const loadMapData = () => {
-    axios.get('api/heat-map/TodosChamados')
+  const loadMapData = (ano=null) => {
+    axios.get(`api/heat-map/MenorAtuacao${ano ? '?ano='+ano : '' }`)
       .then((response) => {
         const { data } = response;
         console.log(data);
@@ -36,11 +36,29 @@
       });
   };
 
+  const getFormData = () => {
+    return {
+      ano: $( "#inputAno" ).val()
+    }
+  };
+
+  const filter = () => {
+    let { ano } = getFormData();
+    if (ano === "todos") ano = null;
+    loadMapData(ano);
+  }
+
   // run
   const run = async () => {
 
     setupMap();
     loadMapData();
+
+    $("#filters").submit(function(e){
+      e.preventDefault();
+      filter();
+      // console.log()
+    });
 
   };
 
