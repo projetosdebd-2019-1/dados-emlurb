@@ -9,12 +9,20 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="index.html">Dados Emlurb</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Alterna navegação"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
@@ -23,8 +31,8 @@
           <li class="nav-item">
             <a class="nav-link" href="maior-incidencia.html">Maior Incidência</a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link" href="servicos-mais-recorrentes.html">Servicos Recorrentes</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="servicos-mais-recorrentes.html">Servicos Mais Recorrentes</a>
           </li>
         </ul>
       </div>
@@ -39,23 +47,18 @@
               <div class="card-body">
                 <!-- form -->
                 <form class="form-inline" id="filters">
-                  <label for="inputBairro" class="mb-2 mr-sm-2">Bairro</label>
-                  <select id="inputBairro" class="form-control mb-2 mr-sm-2">
-                  </select>
-
-                  <label for="inputSituacao" class="mb-2 mr-sm-2">Situação</label>
-                  <select id="inputSituacao" class="form-control mb-2 mr-sm-2">
-                  </select>
-
-                  <label for="inputAno" class="mb-2 mr-sm-2">Ano</label>
-                  <select id="inputAno" class="form-control mb-2 mr-sm-2">
-                    <option value="todos" selected>Todos</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                  </select>
-
-                  <button type="submit" class="btn btn-primary mb-2">Filtrar</button>
-                </form>
+                    <label for="inputBairroServicoRecorr" class="mb-2 mr-sm-2">Bairro</label>
+                    <select id="inputBairroServicoRecorr" class="form-control mb-2 mr-sm-2">
+                    </select>
+  
+                    <label for="inputAnoServicoRecorr" class="mb-2 mr-sm-2">Ano</label>
+                    <select id="inputAnoServicoRecorr" class="form-control mb-2 mr-sm-2">
+                      <option value="todos" selected>Todos</option>
+                      <option value="2017">2017</option>
+                      <option value="2018">2018</option>
+                    </select> 
+                    <button type="submit" class="btn btn-primary mb-2">Filtrar</button>
+                  </form>
                 <!-- end of form -->
               </div>
             </div>
@@ -63,7 +66,7 @@
         </div>
       </div>
     </section>
-    
+
     <section id="heatmap" class="bg-light p-3">
       <div class="container">
         <div class="row">
@@ -82,7 +85,7 @@
     <footer>
       <div class="container">
         <p>
-          Dados Emlurb by: <a href="https://github.com/AndersonRodr"> Anderson Rogrigues </a>,
+          Dados Emlurb by: <a href="https://github.com/AndersonRodr"> Anderson Rodrigues </a>,
           <a href="https://github.com/BrunoVirgu">Bruno Alves</a>,
           <a href="https://github.com/ItaloSa"> Ítalo Sousa</a> and
           <a href="https://github.com/nicolas-sss">Nicolas Moura</a>
@@ -91,6 +94,6 @@
     </footer>
 
     <script src="./assets/js/bundle.js"></script>
-    <script src="./assets/js/Main.js"></script>
+    <script src="./assets/js/ServicosMaisRecorrentes.js"></script>
   </body>
 </html>

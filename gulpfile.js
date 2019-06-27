@@ -21,6 +21,7 @@ const app = [
   './src/app/src/Main.js',
   './src/app/src/MenorAtuacao.js',
   './src/app/src/MaiorIncidencia.js',
+  './src/app/src/ServicosMaisRecorrentes.js'
 ];
 
 gulp.task('build-styles', () => {

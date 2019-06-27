@@ -26,14 +26,19 @@ router.get('/ServicosRecorrentes', async (req, res) => {
   let data;
   if(bairro != undefined && ano == undefined ){
     data = await controller.getMaisRecorrentes(bairro);
+    res.json({
+      definition: `Servicos mais recorrentes em: ${bairro}`,
+      data,
+    });
   }
   else if(bairro != undefined && ano != undefined ){
     data = await controller.getMaisRecorrentes1(bairro, ano);
+    res.json({
+      definition: `Servicos mais recorrentes em: ${bairro} no ano de : ${ano}`,
+      data,
+    });
   }
-  res.json({
-    definition: `Servicos mais recorrentes em: ${bairro} no ano de : ${ano}`,
-    data,
-  });
+
 });
 //TODOS OS CHAMADOS UTILIZANDO FILTROS
 router.get('/TodosChamados', async (req, res) => {
