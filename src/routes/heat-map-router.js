@@ -110,7 +110,7 @@ router.get('/Insidencia', async (req, res) => {
     data = await controller.getInsidenciaServico1(descricao, ano);
   }
   res.json({
-    definition: `Servicos mais recorrentes em: ${bairro} no ano de : ${ano}`,
+    definition: `Maior incidência de ${descricao} ${ano ? 'em: ' + ano : '' }`,
     data,
   });
 });

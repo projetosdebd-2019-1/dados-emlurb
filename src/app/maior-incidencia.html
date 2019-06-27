@@ -9,23 +9,61 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="index.html">Dados Emlurb</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Alterna navegação"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="menor-atuacao.html">Menor Atuação</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="maior-incidencia.html">Maior Incidência</a>
           </li>
         </ul>
       </div>
     </nav>
+
+    <section id="filters" class="bg-light pt-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">Filtros</div>
+              <div class="card-body">
+                <!-- form -->
+                <form class="form-inline" id="filters">
+                  <label for="inputDescricao" class="mb-2 mr-sm-2">Descrição</label>
+                  <select id="inputDescricao" class="form-control mb-2 mr-sm-2">
+                  </select>
+
+                  <label for="inputAno" class="mb-2 mr-sm-2">Ano</label>
+                  <select id="inputAno" class="form-control mb-2 mr-sm-2">
+                    <option value="todos" selected>Todos</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                  </select>
+
+                  <button type="submit" class="btn btn-primary mb-2">Filtrar</button>
+                </form>
+                <!-- end of form -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="heatmap" class="bg-light p-3">
       <div class="container">
@@ -54,6 +92,6 @@
     </footer>
 
     <script src="./assets/js/bundle.js"></script>
-    <script src="./assets/js/Main.js"></script>
+    <script src="./assets/js/MaiorIncidencia.js"></script>
   </body>
 </html>
