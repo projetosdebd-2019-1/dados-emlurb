@@ -38,7 +38,7 @@
         var distinctServices = [...new Set(data.data.map(x => x.descricao))]
         console.log(distinctServices);
         for (var service in distinctServices) {
-          document.getElementById('top-3-services').innerHTML += '<li>' + distinctServices.pop(service) + '</li>';
+          document.getElementById('top-3-services').innerHTML += '<li class="list-group-item">' + distinctServices.pop(service) + '</li>';
         }
       }).catch((err) => {
         console.log(err);
@@ -87,12 +87,12 @@
         setupMap();
         await loadBairro();
         filter();
-    
+
         $("#filters").submit(function(e){
           e.preventDefault();
           filter();
         });
-    
+
       };
 
   run();
