@@ -27,6 +27,40 @@
       </div>
     </nav>
 
+    <section id="filters" class="bg-light pt-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">Filtros</div>
+              <div class="card-body">
+                <!-- form -->
+                <form class="form-inline" id="filters">
+                  <label for="inputBairro" class="mb-2 mr-sm-2">Bairro</label>
+                  <select id="inputBairro" class="form-control mb-2 mr-sm-2">
+                  </select>
+
+                  <label for="inputSituacao" class="mb-2 mr-sm-2">Situação</label>
+                  <select id="inputSituacao" class="form-control mb-2 mr-sm-2">
+                  </select>
+
+                  <label for="inputAno" class="mb-2 mr-sm-2">Ano</label>
+                  <select id="inputAno" class="form-control mb-2 mr-sm-2">
+                    <option value="todos" selected>Todos</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                  </select>
+
+                  <button type="submit" class="btn btn-primary mb-2">Filtrar</button>
+                </form>
+                <!-- end of form -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <section id="heatmap" class="bg-light p-3">
       <div class="container">
         <div class="row">

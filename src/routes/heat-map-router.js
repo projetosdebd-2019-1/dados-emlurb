@@ -51,7 +51,7 @@ router.get('/TodosChamados', async (req, res) => {
     data = await controller.getTodosChamados2(bairro);
   }
   else if (ano == undefined && bairro == undefined && situacao != undefined){
-    data = await controller.getTodosChamados3(bairro);
+    data = await controller.getTodosChamados3(situacao);
   }
   else if (ano != undefined && bairro == undefined && situacao != undefined){
     data = await controller.getTodosChamados4(situacao, ano);
@@ -63,7 +63,7 @@ router.get('/TodosChamados', async (req, res) => {
     data = await controller.getTodosChamados6(bairro, situacao);
   }
   else{
-    data = await controller.getTodosChamados7(bairro, ano,situacao);
+    data = await controller.getTodosChamados7(bairro, ano, situacao);
   }
   res.json({
     definition: "Todos os chamados",

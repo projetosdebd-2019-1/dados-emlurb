@@ -202,21 +202,7 @@ module.exports = {
       where chamado.codigoEndereco = endereco.codigo
       and EXTRACT(YEAR from dataDemanda) = ${ano}
       and bairro = '${bairro}'
-      and situacao = 'P${situacao}';
-      `, (err, rows, fields) => {
-        resolve(rows);
-      });
-    })
-  },
-
-  getTodosChamados7(bairro, ano, situacao){
-    return new Promise((resolve, reject) => {
-      database.query(`
-      select lat, lng from chamado, endereco
-      where chamado.codigoEndereco = endereco.codigo
-      and EXTRACT(YEAR from dataDemanda) = ${ano}
-      and bairro = '${bairro}'
-      and situacao = 'P${situacao}';
+      and situacao = '${situacao}';
       `, (err, rows, fields) => {
         resolve(rows);
       });
