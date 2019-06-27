@@ -5,6 +5,7 @@
   const map = Leaflet.map('map').setView([-8.056925, -34.883004], 13); // Recife view
   let addressPoints = [];
   let heatLayer;
+  let distinctServices;
 
   const setupMap = () => {
     Leaflet.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -34,6 +35,11 @@
         setMapDescription(data.definition);
         setAddressPoints(data.data);
         setMapPoints(addressPoints);
+        var distinctServices = [...new Set(data.data.map(x => x.descricao))]
+        console.log(distinctServices);
+        for (var service in distinctServices) {
+          document.getElementById('top-3-services').innerHTML += '<li>' + distinctServices.pop(service) + '</li>';
+        }
       }).catch((err) => {
         console.log(err);
       });
